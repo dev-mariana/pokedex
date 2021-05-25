@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListComponent } from './components/list/list.component';
+import { ViewComponent } from './components/view/view.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: ListComponent },
+  { path: 'view', component: ViewComponent },
+  //redireciona para o component default
+  { path: '**', component: ListComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
