@@ -5,7 +5,7 @@ import { ViewComponent } from './components/view/view.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent },
-  { path: 'view', component: ViewComponent },
+  { path: 'view/:name', component: ViewComponent },
   //redireciona para o component default
   { path: '**', component: ListComponent }
 ];

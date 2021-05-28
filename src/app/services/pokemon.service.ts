@@ -44,7 +44,7 @@ export class PokemonService {
     return this.http.get<any[]>(url);
   }
 
-  getEvolution(id: number): Observable<any[]> {
+  getEvolution(id: any): Observable<any[]> {
     const url = `${environment.baseUrl}evolution-chain/${id}`;
     return this.http.get<any[]>(url);
   }

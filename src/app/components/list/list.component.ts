@@ -47,16 +47,15 @@ export class ListComponent implements OnInit {
       this.subscription = concat(...details).subscribe(response => {
         this.pokemonService.pokemons.push(response);
       });
+    }, (err)=> {
+      console.log('error', err);
+    }, () => {
+      this.loading = false;
     })
-    // this.pokemonService.getNext().subscribe((response: any) => {
-    //   this.pokemonService.next = response.next;
-    //   const details = response.results.map((p: any) => this.pokemonService.getPokemonByName(p.name));
-    //   this.subscription = concat(...details).subscribe(response => {
-    //     this.pokemonService.pokemons.push(response);
-    //   })
-    //   // console.log('details', details);
-    //   console.log('pokemons', this.pokemons);
-    // });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription ? subscription.unsubscribe() : 0);
   }
 
 }
